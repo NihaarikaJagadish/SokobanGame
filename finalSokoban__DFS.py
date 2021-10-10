@@ -204,9 +204,18 @@ def getParent(childState):
       finalTrace.append(eval(eachKey))
 
 startTime = datetime.datetime.now()
-firstArray = [['0','0','0','0','0','0','0','0'],['0',' ',' ',' ','0','R',' ','0'],['0',' ',' ',' ',' ','B',' ','0'],['0',' ',' ',' ','0',' ',' ','0'],['0','0','0','0','0','B','S','0'],[' ',' ',' ',' ','0',' ','S','0'], [' ',' ',' ',' ','0','0','0','0']]
+# firstArray = [['0','0','0','0','0','0','0','0'],['0',' ',' ',' ','0','R',' ','0'],['0',' ',' ',' ',' ','B',' ','0'],['0',' ',' ',' ','0',' ',' ','0'],['0','0','0','0','0','B','S','0'],[' ',' ',' ',' ','0',' ','S','0'], [' ',' ',' ',' ','0','0','0','0']]
 # firstArray = [['0','0','0','0','0'],['0',' ','R',' ','0'],['0',' ','B','S','0'],['0','0','0','0','0']]
-
+arr = []
+firstArray = []
+with open('inputFile.txt') as file:
+    lines = file.readlines()
+    lines = [line.rstrip() for line in lines]
+    for line in lines:
+      arr = []
+      for eachCharacter in line:
+        arr.append(eachCharacter)
+      firstArray.append(arr)
 solutionPlaces = getIndex("S",firstArray)
 totalBlocks = len(getIndex("B", firstArray))
 finalTree = {}
